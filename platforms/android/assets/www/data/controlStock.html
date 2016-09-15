@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/jquery.mobile.min.js"></script>
+	<script src="/js/common.js"></script>
+	<script type="text/javascript" src="/js/index/controlStockController.js"></script>
+	<script type="text/javascript" src="/js/underscore.min.js"></script>
+	<script type="text/javascript" src="/js/nativeDroid.js"></script>
+	<script src="/js/app.js"></script>
+	<link rel="stylesheet" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/css/jquery.mobile.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/css/nativeDroid.css" />
+	<title>Valencia</title>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header" data-position="fixed" class="wow fadeIn">
+			<a href="#popupDialog" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" class="ui-btn ui-btn-right" style="margin-top: 20px;">
+				<i class="zmdi zmdi-menu letter-color"></i>
+			</a>
+			<div data-role="popup" id="popupDialog">
+				<div data-role="header">
+					<h1 class='nd-title'>QUE DESEA HACER?</h1>
+				</div>
+				<div data-role="content">
+					<a href="#" onclick="app.doLogout();" data-role="button" data-inline="true" class="ui-btn ui-btn-primary">Cerrar sesion</a>
+					<a href="#" onclick="app.closeApplication();" data-role="button" data-inline="true" class="ui-btn ui-btn-primary">Cerrar aplicacion</a>
+				</div>
+			</div>
+			<h1 class="wow fadeIn" data-wow-delay='0.4s'>SERVICIO DE</br>CATERING VALENCIA</h1>
+		</div>
+		
+		<a href="#popupDialog-realizar-pedido" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" aria-haspopup="true" aria-owns="popupDialog-realizar-pedido" aria-expanded="false" class="ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all" role="button" style="display:none;" id="popupDialog-realizar-pedido-link"></a>
+		<div data-role="popup" id="popupDialog-realizar-pedido">
+			<div data-role="header">
+				<h1 class='nd-title' style="text-align: center;" id="popupDialog-realizar-pedido">Modificar cantidad<br>en Stock </h1>
+				<label for="name2b" id="nombre-producto-en-edicion" style="cursor: auto;text-align: center;color: #F1C40F;font-size: 20px;padding-bottom: 15px;"></label>
+			</div>
+			<div data-role="content">
+				<form id="producto-list-form">
+					<div class="row">
+						<div style="width:100%">
+							<div class="box">
+								<div class="div-form">
+									<label for="name2b" style="margin-bottom:10px;">Cantidad en stock:</label>
+									<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+										<input type="text" name="cantidad" id="cantidad" value="" data-clear-btn="true" placeholder="Ingrese la cantidad...">
+									</div>
+								</div>
+								<div id="error-producto" style="text-align: center;" class="error"></div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<a href="#" style="margin-top:5px;" onclick="ControlStock.GuardarCantidad(this);" data-role="button" data-inline="true" class="ui-btn ui-btn-primary">Modificar cantidad</a>
+			</div>
+		</div>
+
+		<div id="content" style="margin-top: 20px;">
+			<div style="text-align:center;margin-top: 20px;margin-bottom: 20px;font-weight: bold;">Control de stock</div>
+			<div style="margin-left: 20px;margin-right: 20px;">
+				<table data-role="table" id="table2" data-mode="" class="ui-responsive table-stroke ui-table" style="font-size: 11px;margin-left:2px;">
+					<thead>
+						<tr style="background-color: gainsboro;">
+							<th data-colstart="1">Nombre</th>
+							<th style="width: 80px;" data-colstart="2">Unidad</th>
+							<th style="width: 80px;" data-colstart="3">En Stock</th>
+							<th style="width: 181px;" data-colstart="4">Modificar</th>
+						</tr>
+					</thead>
+					<tbody id="tb-stock">
+					</tbody>
+				</table>
+			</div>
+			<div class="center-xs" style="margin-bottom: 26px;">
+				<button class="ui-btn-fab ui-btn-raised clr-warning waves-effect waves-button waves-effect waves-button ui-btn ui-btn-inline" style="background-color: #2274A5;margin-bottom: 70px;position: absolute;right: 9px;bottom: 0;" onclick="redirectToEdicionProductos();"><i class="zmdi zmdi-replay zmd-2x"></i></button>
+				<div id="errors" class="errorMessage"></div>
+				<div id="errors2" class="errorMessage"></div>
+				<div id="errors3" class="errorMessage"></div>
+				<div id="user-form-id-error" class="errorMessage"></div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" class="footter-padding" data-position="fixed" style="padding: 0px;margin: 0px;border: 0px;">
+		<div class="app-background letter-color" data-wow-delay='0.4s' style="padding: 8px;font-weight: 100;padding-bottom: 0px;text-transform: none;">Av. Circunvalacion<span style="float:right;padding: 8px;">Cbba-Bolivia</span></div>
+		<div class="app-background letter-color" style="text-transform: none;padding-top: 0px;padding: 8px;font-weight: 100;" data-wow-delay='0.4s'>Telf: 4457758-70304943</div>
+	</div>
+	<script type="text/javascript" src="/cordova.js"></script>
+	<script type="text/javascript">
+		app.initialize();
+	</script>
+</body>
+</html>

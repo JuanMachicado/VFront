@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery-ui.min.js"></script>
+		<script src="/js/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="/js/index/loginController.js"></script>
+		<script type="text/javascript" src="/js/underscore.min.js"></script>
+		<script type="text/javascript" src="/js/nativeDroid.js"></script>
+		<script src="/js/app.js"></script>
+		<script type="text/javascript">redirectToLoggedMainifLooged();</script>
+		<link rel="stylesheet" href="/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/css/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="/css/nativeDroid.css" />
+		<title>Valencia</title>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+				<div class="row">
+					<div class="col-xs-2 center-xs">
+						<div class="box">
+							<img class="profile-thumbnail logo-img" src="/img/logo.png">
+						</div>
+					</div>
+					<div class="col-xs-8">
+						<div class="box profile-text">
+							<span class="subline"><h3 class="wow fadeIn letter-color" data-wow-delay='0.4s'>SERVICIO DE</br>CATERING VALENCIA</h1></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="content" style="margin-top: 20px;">
+				<form id="user-form">
+					<div class="row">
+						<div style="width:100%">
+							<div class="box">
+								<div class="div-form">
+									<label for="name2b">Usuario:</label>
+									<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+										<input type="text" name="username" id="username" value="" data-clear-btn="true" placeholder="Ingrese su nombre de usuario...">
+									</div>
+								</div>
+								<div class="div-form">
+									<label for="name2b">Contraseña:</label>
+									<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+										<input type="password" name="password" id="password" value="" data-clear-btn="true" placeholder="Ingrese su contraseña...">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="center-xs">
+					<button class="ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button" onclick="doLogIn();"><i class="zmdi zmdi-mail-send"></i>Ingresar</button>
+					<button class="ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button" onclick="redirectToHome();"><i class="zmdi zmdi-home zmd-fw"></i>Volver</button>
+					<div id="user-form-id-error" class="errorMessage"></div>
+				</div>
+			</div>
+			<div data-role="footer" class="footter-padding" data-position="fixed" style="padding: 0px;margin: 0px;border: 0px;">
+				<div class="app-background letter-color" data-wow-delay='0.4s' style="padding: 8px;font-weight: 100;padding-bottom: 0px;text-transform: none;">Av. Circunvalacion<span style="float:right;padding: 8px;">Cbba-Bolivia</span></div>
+				<div class="app-background letter-color" style="text-transform: none;padding-top: 0px;padding: 8px;font-weight: 100;" data-wow-delay='0.4s'>Telf: 4457758-70304943</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/cordova.js"></script>
+		<script type="text/javascript">
+			app.initialize();
+		</script>
+	</body>
+</html>

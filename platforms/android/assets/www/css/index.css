@@ -1,0 +1,263 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ui-loader {
+    display: none !important;
+}
+
+.button-inline-table {
+    width: 69px;
+    height: 0px;
+    padding-top: 4px;
+    padding-bottom: 17px;
+    font-size: 11px;
+}
+
+.letter-color {
+    color: #F1C40F;
+}
+th {
+    border: 1px solid rgba(0,0,0,.1) !important;
+}
+td {
+    border: 1px solid rgba(0,0,0,.1) !important;
+}
+li {
+    color: #F1C40F !important;
+}
+.errorMessage-tiny-centered {
+    font-size: 12px;
+    text-align: center;
+    color: red;
+    font-style: italic;
+    text-transform: initial;
+}
+.errorMessage {
+    color: red;
+    font-style: italic;
+    text-transform: initial;
+}
+
+.body-content {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+.error {
+    color: red;
+    font-style: italic;
+    text-transform: initial;
+}
+
+input[type=text] {
+    border-style: solid !important;
+    border-bottom: 2px solid beige !important;
+}
+
+div {
+    text-transform: none;
+}
+/*.ui-popup-container {
+    top: 50% !important;
+}*/
+
+.selector-as-form {
+    font-size: 14px;
+    border-radius: 0px;
+    border: 0px solid #ffffff;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    line-height: 16px;
+    text-align: left;
+    text-transform: none;
+    color: darkgray;
+}
+
+.div-form {
+    margin: 20px;
+}
+
+.logo-img {
+    width: 80px;
+    margin: 9px;
+}
+
+.app-background {
+    background-color: #2274A5;
+}
+
+.footter-padding {
+    padding: 2px;
+}
+
+.slides-button {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #628395;
+    background-color: #2274A5;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.slides-button:hover {
+    background-color: #628395;
+}
+
+.text-slide-img {
+    font-size: 18px!important;
+    content: "";
+    display: table;
+    clear: both;
+    line-height: 1.5;
+    color: #F1C40F !important;
+    background-color: #2274A5 !important;
+    padding: 0.01em 16px;
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #DFD5A5 !important;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
