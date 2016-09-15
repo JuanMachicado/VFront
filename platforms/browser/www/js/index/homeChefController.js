@@ -136,6 +136,7 @@ HomeChef.MarcarProductoRealizadoClicked = function(el) {
 										performingAjaxLogIn = false;
 										$("body").css("opacity", "1");
 										$("body").css("pointer-events", "all");	
+										window.location.reload(true);
 									}      
 								});
 							}

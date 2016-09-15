@@ -164,6 +164,12 @@ redirectToEdicionProductos = function() {
     }
 }
 
+redirectToReportes = function() {
+    if(window.location.href.indexOf('/data/reports.html') === -1) {
+       window.location = "/data/reports.html"
+    }
+}
+
 redirectToRegistroProductos = function() {
     if(window.location.href.indexOf('/data/registroProductos.html') === -1) {
        window.location = "/data/registroProductos.html"
