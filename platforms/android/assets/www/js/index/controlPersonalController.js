@@ -94,21 +94,6 @@ processData = function() {
 				var item="<tr><td>"+encargado+"</td><td>"+chef+"</td><td>"+empresa+"</td></tr>";
 				tablaPersonalLectura.append(item);
 			});
-			/*var empresa = ""
-			var chef = ""
-			if(relation) {
-				empresa = relation.empresa;
-				chef = relation.chef_usuario;
-				if(chef.length > 0) {
-					chef += "(Usuario no encontrado)";
-				}
-				var chefRel = chefs.find(function(item){ return item.Usuario == relation.chef_usuario; });
-				if(chefRel) {
-					chef = chefRel.Apellido1 + " " + chefRel.Nombre + " " + chefRel.CI;
-				}
-			}
-			var item="<tr><td>"+encargado+"</td><td>"+chef+"</td><td>"+empresa+"</td></tr>";
-			tablaPersonalLectura.append(item);*/
 		});
 	}
 }
@@ -145,19 +130,6 @@ ControlPersonal.AsignarChefAEncargado = function(element) {
 	var form = $('form[id=asignacion-chef-form]');
 	var Empresa = form.find('input[id=empresa]').val(),
 		Encargado = form.find('select[id=encargados-dropdown-popup]').val();
-	/*hasError = false;
-	if(isNullOrEmpty(Empresa)) {
-		hasError = true;
-		$("#error-empresa").html("La empresa no puede estar vacio");
-	} else {
-		$("#error-empresa").html("");
-	}
-	if(isNullOrEmpty(Encargado)) {
-		hasError = true;
-		$("#error-encargados-dropdown-popup").html("Debe seleccionar un encargado");
-	} else {
-		$("#error-encargados-dropdown-popup").html("");
-	}*/
 	$("body").css("opacity", "0.5");
 	$("body").css("pointer-events", "none");
 	$.ajax({

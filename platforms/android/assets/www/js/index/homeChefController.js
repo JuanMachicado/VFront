@@ -76,6 +76,7 @@ initializePage = function() {
 			$("body").css("pointer-events", "all");
 		}  
 	});
+	
 };
 
 HomeChef.getDrownDownHtml = function(nombre) {
@@ -96,9 +97,54 @@ HomeChef.MarcarProductoRealizadoClicked = function(el) {
 		crossDomain: true,
 		dataType: 'json',
 		success:function(data, textStatus, jqXHR){
-			$("body").css("opacity", "1");
-			$("body").css("pointer-events", "all");
-			window.location.reload(true);
+			var pedido = data.pedido
+			$.ajax({
+				url: app.getBaseUrl() + "/producto",
+				type: "GET",
+				crossDomain: true,
+				dataType: 'json',
+				success:function(data, textStatus, jqXHR){
+					if(data.success === 'true') {
+						productos = _.groupBy(data.data, function(item){return item.nombre;});
+						pedido;
+						ingredientes = _.first(productos[pedido.nombre]).ingredientes;
+						cantidad = parseFloat(pedido.cantidad);
+						ingredientes = ingredientes.split(",");
+						ingredientes = _.reject(ingredientes, function(item) {item.length == 0;});
+						_.forEach(ingredientes, function(ingrediente) {
+							items = ingrediente.split("|");
+							_cantidad = parseFloat(items[1])
+							if(!_.isNaN(_cantidad) && !_.isNaN(cantidad)) {
+								$.ajax({
+									url: app.getBaseUrl() + "/stock",
+									type: "POST",
+									crossDomain: true,
+									data: ({
+										nombre: items[0]+"#"+items[2],
+										cantidad: _cantidad*cantidad,
+										reducir: "true"
+									}),
+									dataType: 'json',
+									success:function(data, textStatus, jqXHR){
+										performingAjaxLogIn = false;
+										$("body").css("opacity", "1");
+										$("body").css("pointer-events", "all");	
+										window.location.reload(true);
+									},
+									error:function(){
+										app.saveIntoLocalDB({}, "error");
+										performingAjaxLogIn = false;
+										$("body").css("opacity", "1");
+										$("body").css("pointer-events", "all");	
+										window.location.reload(true);
+									}      
+								});
+							}
+						});
+					}
+				}    
+			});
+			
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) { 
 			$("body").css("opacity", "1");
